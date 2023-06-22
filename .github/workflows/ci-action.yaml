@@ -85,16 +85,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
         with:
-          repository: xxxxxxx
-          ref: 'master'
+          repository: ApwArm/gitops-infra
+          ref: 'main'
           token: ${{ secrets.G_TOKEN }}
       - name: setup git config
         run: |
-          git config --global user.email "rishav@live.co.uk"
-          git config --global user.name "imrishav"
+          git config --global user.email "apiwatarm2@gmail.com"
+          git config --global user.name "ApwArm"
           echo ${{ github.sha }}
           sed -i "s#${{ github.actor }}.*#${{ github.actor }}/gitops01:${{ github.sha }}#g" deployment.yaml
           git add -A
           git commit -am "Update image for - ${{ github.sha }}"
       - run: echo ${{ github }}
-      - run: git push origin master
+      - run: git push origin main
