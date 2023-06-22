@@ -33,7 +33,7 @@ jobs:
     steps:
       - name: Running Tests
         uses: actions/checkout@v3
-      - run: echo "runnigngngngngn"
+      - run: echo "runing...."
 
   build-and-push-docker-image:
     name: Build Docker image and push to repositories
@@ -72,9 +72,8 @@ jobs:
           # Note: tags has to be all lower-case
           tags: |
             apiwatarm/reactapp-ci:${{ github.sha }} 
-          # ghcr.io/apiwatarm/reactapp-ci:${{ github.sha }}
           # build on feature branches, push only on main branch
-          push: ${{ github.ref == 'refs/heads/master' }}
+          push: ${{ github.ref == 'refs/heads/main' }}
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
